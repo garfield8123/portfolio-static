@@ -5,7 +5,7 @@ def load_json(filename):
         return json.load(fileinfo)
 
 def search(SearchBox):
-    searchList = json.load(project_file)
+    searchList = json.load(projectile)
     queredList = []
     #---- Finds similiar name or tags for search box ----
     for x in searchList.get("Projects"):
@@ -14,7 +14,7 @@ def search(SearchBox):
         elif SearchBox.lower() in [y.lower() for y in x.get("tag")]:
             queredList.append(x)
         elif SearchBox.lower() in x.get("information"):
-            queredList.append(x)
+         _f   queredList.append(x)
         else:
             continue
     return queredList

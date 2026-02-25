@@ -38,7 +38,17 @@ schoolname=$(findinfo "$aboutmeinfo" "School")
 echo $Email
 
 function changeHTML(){
-    sed -i "s|${1}|${2}|g" "$3"
+    local search="$1"
+    local replace="$2"
+    local target="$3"
+
+    if [[ -f "$target" ]]; then
+        # If it's a file
+        sed -i "s|$search|$replace|g" "$target"
+    else
+        # If it's a string
+        echo "$target" | sed "s|$search|$replace|g"
+    fi
 }
 
 #----- Change html file -----
@@ -66,12 +76,15 @@ function lookthroughjson(){
     sed '1d;$d;s/^[[:space:]]*//;s/,$//' | 
     while IFS=: read -r key value; do        
         htmlstring+=$(echo "$sitetemplateinfo" | grep -i -A1 "$3" | tail -n 1 | tr '"' ' ' | tr ',' ' ')
-        echo "$htmlstring" > html.txt
         key=${key//\"/}
-        value=${value#\"}
-        value=${value%\"}
-        changeHTML "%name" "$key" "html.txt"
-        changeHTML "%expire" "$value" "html.txt"
+        value="${value//\"/}"
+        value="${value%"${value##*[![:space:]]}"}"   # trim trailing whitespace
+        value="${value%,}"    # remove trailing comma
+        echo $value
+        htmlstring=$(changeHTML "%name" "$key" "$htmlstring")
+        htmlstring=$(changeHTML "%value" "$value" "$htmlstring")
+        htmlstring=$(changeHTML "%expire" "$value" "$htmlstring")
+        echo "$htmlstring" > html.txt
     done 
 }
 
@@ -86,6 +99,7 @@ changeHTML "{{!skills}}" "$(cat html.txt)" "$aboutMeHTML"
 
 
 #----- Changes to Project html -----
+changeHTML "{{fullName}}" "$fullname" "$ProjectHTML"
 rm html.txt
-python search.py $sitetemplatefile $projectfile
-changeHTML "{{!ProjectList}}" "$(cat html.txt)" "$ProjectHTML"
+#python search.py $sitetemplatefile $projectfile
+#changeHTML "{{!ProjectList}}" "$(cat html.txt)" "$ProjectHTML"

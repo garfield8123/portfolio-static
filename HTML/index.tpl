@@ -8,6 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="./Scripts/search.js"></script>
         <link rel="stylesheet" href="/Scripts/index.css">
         <link rel="shortcut icon" href="/Images/pandaProfile.jpg">
         <script>
@@ -28,17 +29,15 @@ function resizeIframe(iframe) {
                         <a class="nav-link" href="./">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./about-me">About me</a>
+                        <a class="nav-link" href="./about-me.html">About me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./project">Projects</a>
+                        <a class="nav-link" href="./project.html">Projects</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contact">Contact</a>
-                    </li>
+                  
                 </ul>
-                <form class="d-flex" role="search" method="POST" action="./SearchProject">
-                    <input class="form-control me-2" name="SearchBox" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" id="searchForm">
+                    <input class="form-control me-2" id="searchInput" name="SearchBox" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -55,7 +54,7 @@ function resizeIframe(iframe) {
             </div>
             
             <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>-->
-            <iframe width=100% onload="resizeIframe(this)" src="/HTML/shell.html" name="limitedshellgame" allowTransparency="true" scrolling="yes" frameborder="0"> </iframe>
+            <iframe width=100% onload="resizeIframe(this)" src="./shell.html" name="limitedshellgame" allowTransparency="true" scrolling="yes" frameborder="0"> </iframe>
             
             <!--
             <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
