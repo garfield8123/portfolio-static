@@ -6,10 +6,10 @@ document.head.appendChild(script1);
 
 const baseUrl = window.location.origin +
   window.location.pathname.replace(/\/[^\/]*$/, '');
-    availableCommands = $.getJSON(`{baseurl}/information/limitedshell.json`, function(data) {
+    availableCommands = $.getJSON(`./information/limitedshell.json`, function(data) {
         availableCommands = data.availableCommands;
     });
-    Commands = $.getJSON(`{baseurl}/information/limitedshell.json`, function(seconddata) {
+    Commands = $.getJSON(`./information/limitedshell.json`, function(seconddata) {
         Commands = seconddata.commands;
     });
     count = 0;

@@ -12,7 +12,7 @@ const baseUrl =
   window.location.hostname === "localhost"
     ? ""
     : repoName;
-    console.log(baseUrl)
+    //console.log(baseUrl)
 async function loadProjects() {
     const data = await $.getJSON(`${baseUrl}/information/Projects.json`);
     projectlist = data.Projects;
