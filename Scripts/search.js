@@ -14,7 +14,7 @@ const repoName = pathParts.length > 1 ? `/${pathParts[1]}` : "";
     : repoName;*/
 
 const baseUrl = window.location.origin
-    //console.log(baseUrl)
+    console.log(baseUrl)
 async function loadProjects() {
     const data = await $.getJSON(`${baseUrl}/information/Projects.json`);
     projectlist = data.Projects;
