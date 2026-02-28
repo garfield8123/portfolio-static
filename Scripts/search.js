@@ -21,7 +21,7 @@ function getBasePath() {
 }
 
 const basePath = getBasePath();
-    console.log(baseUrl)
+    console.log(basePath)
 async function loadProjects() {
     const data = await $.getJSON(`${basePath}/information/Projects.json`);
     projectlist = data.Projects;
