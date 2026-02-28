@@ -23,7 +23,8 @@ function getBasePath() {
 const basePath = getBasePath();
     console.log(basePath)
 async function loadProjects() {
-    const data = await $.getJSON(`${basePath}/information/Projects.json`);
+    const url = `${basePath}/information/Projects.json`.replace(/\/\//g,'/'); 
+    const data = await $.getJSON(url);
     projectlist = data.Projects;
     //console.log("Projects loaded:", projectlist);
 }
@@ -33,7 +34,9 @@ loadProjects();  // starts loading
 let siteTemplate;
 
 async function loadSiteTemplate() {
-    const data = await $.getJSON(`${basePath}/information/site-template.json`);
+    const url = `${basePath}/information/site-template.json`.replace(/\/\//g,'/'); 
+    const data = await $.getJSON(url);
+    //const data = await $.getJSON(`${basePath}/information/site-template.json`);
     siteTemplate = data;
     //console.log("site loaded:", siteTemplate);
 }
