@@ -1,16 +1,14 @@
-var script = document.createElement("script");
-script.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js";
-script.type = "text/javascript";
 var script1 = document.createElement("script");
 script1.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js";
 script1.type = "text/javascript";
-document.getElementsByTagName("head")[0].appendChild(script1);
-document.getElementsByTagName("head")[1].appendChild(script);
-var people = [];
-    availableCommands = $.getJSON('../information/limitedshell.json', function(data) {
+
+document.head.appendChild(script1);
+
+const baseUrl = window.location.origin;
+    availableCommands = $.getJSON(`{baseurl}/information/limitedshell.json`, function(data) {
         availableCommands = data.availableCommands;
     });
-    Commands = $.getJSON('../information/limitedshell.json', function(seconddata) {
+    Commands = $.getJSON(`{baseurl}/information/limitedshell.json`, function(seconddata) {
         Commands = seconddata.commands;
     });
     count = 0;

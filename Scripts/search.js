@@ -1,8 +1,8 @@
-var script = document.createElement("script");
-script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js";
-script.type = "text/javascript";
-//document.getElementsByTagName("head")[0].appendChild(script1);
-document.getElementsByTagName("head")[0].appendChild(script);
+var script1 = document.createElement("script");
+script1.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js";
+script1.type = "text/javascript";
+
+document.head.appendChild(script1);
 
 let projectlist;
 const baseUrl = window.location.origin;
