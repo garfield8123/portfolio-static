@@ -8,10 +8,12 @@ let projectlist;
 const pathParts = window.location.pathname.split('/');
 const repoName = pathParts.length > 1 ? `/${pathParts[1]}` : "";
 
-const baseUrl =
+/*const baseUrl =
   window.location.hostname === "localhost"
     ? ""
-    : repoName;
+    : repoName;*/
+
+const baseUrl = window.location.origin
     //console.log(baseUrl)
 async function loadProjects() {
     const data = await $.getJSON(`${baseUrl}/information/Projects.json`);
