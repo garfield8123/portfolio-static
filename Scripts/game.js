@@ -4,7 +4,8 @@ script1.type = "text/javascript";
 
 document.head.appendChild(script1);
 
-const baseUrl = window.location.origin;
+const baseUrl = window.location.origin +
+  window.location.pathname.replace(/\/[^\/]*$/, '');
     availableCommands = $.getJSON(`{baseurl}/information/limitedshell.json`, function(data) {
         availableCommands = data.availableCommands;
     });
