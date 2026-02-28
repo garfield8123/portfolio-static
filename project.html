@@ -10,7 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="./Scripts/search.js"></script>
         <link rel="stylesheet" href="./Scripts/index.css">
-        <link rel="shortcut icon" href="/Images/logo-betters.png">
+        <link rel="shortcut icon" href="./Images/logo-betters.png">
     </head>
     <header>
         <nav class="navbar navbar-expand-lg navbar-custom fixed-top sticky-top bg-dark">

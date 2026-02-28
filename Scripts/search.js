@@ -5,9 +5,9 @@ script.type = "text/javascript";
 document.getElementsByTagName("head")[0].appendChild(script);
 
 let projectlist;
-
+const baseUrl = window.location.origin;
 async function loadProjects() {
-    const data = await $.getJSON('../information/Projects.json');
+    const data = await $.getJSON(`${baseUrl}/information/Projects.json`);
     projectlist = data.Projects;
     //console.log("Projects loaded:", projectlist);
 }
@@ -17,7 +17,7 @@ loadProjects();  // starts loading
 let siteTemplate;
 
 async function loadSiteTemplate() {
-    const data = await $.getJSON('../information/site-template.json');
+    const data = await $.getJSON(`${baseUrl}/information/site-template.json`);
     siteTemplate = data;
     //console.log("site loaded:", siteTemplate);
 }

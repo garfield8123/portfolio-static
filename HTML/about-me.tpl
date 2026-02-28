@@ -10,7 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="./Scripts/search.js"></script>
         <link rel="stylesheet" href="./Scripts/index.css">
-        <link rel="shortcut icon" href="/Images/pandaProfile.jpg">
+        <link rel="shortcut icon" href="./Images/pandaProfile.jpg">
         
     </head>
     <header>
