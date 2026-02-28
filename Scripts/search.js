@@ -5,9 +5,14 @@ script1.type = "text/javascript";
 document.head.appendChild(script1);
 
 let projectlist;
-const baseUrl = window.location.origin +
-  window.location.pathname.replace(/\/[^\/]*$/, '');
-console.log(baseUrl)
+const pathParts = window.location.pathname.split('/');
+const repoName = pathParts.length > 1 ? `/${pathParts[1]}` : "";
+
+const baseUrl =
+  window.location.hostname === "localhost"
+    ? ""
+    : repoName;
+    console.log(baseUrl)
 async function loadProjects() {
     const data = await $.getJSON(`${baseUrl}/information/Projects.json`);
     projectlist = data.Projects;
