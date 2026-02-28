@@ -1,5 +1,5 @@
 var script = document.createElement("script");
-script.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js";
+script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js";
 script.type = "text/javascript";
 //document.getElementsByTagName("head")[0].appendChild(script1);
 document.getElementsByTagName("head")[0].appendChild(script);
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             // Redirect to project.html with query parameter
             //console.log("nonproject")
-            window.location.href = `/project.html?search=${encodeURIComponent(query)}`;
+            window.location.href = `./project.html?search=${encodeURIComponent(query)}`;
         }
     });
 });
