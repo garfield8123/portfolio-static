@@ -5,18 +5,25 @@ script1.type = "text/javascript";
 document.head.appendChild(script1);
 
 let projectlist;
-const pathParts = window.location.pathname.split('/');
-const repoName = pathParts.length > 1 ? `/${pathParts[1]}` : "";
 
-/*const baseUrl =
-  window.location.hostname === "localhost"
-    ? ""
-    : repoName;*/
 
-const baseUrl = window.location.origin
+function getBasePath() {
+  const { hostname, pathname } = window.location;
+
+  // If on GitHub Pages project site
+  if (hostname.includes("github.io")) {
+    const repoName = pathname.split("/")[1];
+    return `/${repoName}`;
+  }
+
+  // Custom domain or localhost
+  return "";
+}
+
+const basePath = getBasePath();
     console.log(baseUrl)
 async function loadProjects() {
-    const data = await $.getJSON(`./information/Projects.json`);
+    const data = await $.getJSON(`${basePath}/information/Projects.json`);
     projectlist = data.Projects;
     //console.log("Projects loaded:", projectlist);
 }
@@ -26,7 +33,7 @@ loadProjects();  // starts loading
 let siteTemplate;
 
 async function loadSiteTemplate() {
-    const data = await $.getJSON(`./information/site-template.json`);
+    const data = await $.getJSON(`${basePath}/information/site-template.json`);
     siteTemplate = data;
     //console.log("site loaded:", siteTemplate);
 }
